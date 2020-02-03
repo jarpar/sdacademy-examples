@@ -14,7 +14,7 @@ public class ArrayAddElementTest {
 	 * followed by {@code newElements}
 	 */
 	private static String[] addElements(String[] source, String... newElements) {
-		// TODO: implement this method according to the specification
+		// FIXED_TODO: implement this method according to the specification
 		String[] array = new String[source.length + newElements.length];
 		for (int i = 0; i < source.length; i++) {
 			array[i] = source[i];
