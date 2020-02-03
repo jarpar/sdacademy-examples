@@ -13,10 +13,16 @@ public class ArrayAddElementTest {
 	 * @return the new array containing all {@code source} elements
 	 * followed by {@code newElements}
 	 */
-	private static String[] addElements(String[] source, String...
-		newElements) {
+	private static String[] addElements(String[] source, String... newElements) {
 		// TODO: implement this method according to the specification
-		return null;
+		String[] array = new String[source.length + newElements.length];
+		for (int i = 0; i < source.length; i++) {
+			array[i] = source[i];
+		}
+		for (int i = 0; i < newElements.length; i++) {
+			array[source.length + i] = newElements[i];
+		}
+		return array;
 	}
 
 	public static void main(String[] args) {
@@ -25,8 +31,7 @@ public class ArrayAddElementTest {
 
 	private static void runTest() {
 		String[] source = {"A", "B", "C"};
-		String[] newArray = ArrayAddElementTest.addElements(source,
-			"D", "E", "F");
+		String[] newArray = ArrayAddElementTest.addElements(source, "D", "E", "F");
 		assertIndex(newArray, 0, "A");
 		assertIndex(newArray, 1, "B");
 		assertIndex(newArray, 2, "C");
@@ -36,12 +41,9 @@ public class ArrayAddElementTest {
 		System.out.println("Implementation OK!");
 	}
 
-	private static void assertIndex(String[] array, int index, String
-		expected) {
+	private static void assertIndex(String[] array, int index, String expected) {
 		if (!array[index].equals(expected)) {
-			throw new RuntimeException(MessageFormat.format("Bad "
-				+ "implementation. Array[{0}] != {1}. Actual "
-				+ "is {2}.", index, expected, array[index]));
+			throw new RuntimeException(MessageFormat.format("Bad " + "implementation. Array[{0}] != {1}. " + "Actual " + "is {2}.", index, expected, array[index]));
 		}
 	}
 }
